@@ -31,6 +31,10 @@ class DataPreprocessing:
         self.df["Open"] = self.df['Open'].astype(np.float64)
         self.df["High"] = self.df['High'].astype(np.float64)
         self.df["Low"] = self.df['Low'].astype(np.float64)
+        print('------------------------------------Relevent Data------------------------------------')
+        print(self.df.head())
+        print(self.df.info())
+        print(self.df.describe())
 
     def CleanData(self):
         self.df.index = self.df['Date']
