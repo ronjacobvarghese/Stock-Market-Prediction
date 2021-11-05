@@ -1,5 +1,9 @@
 from sklearn.tree import DecisionTreeRegressor 
 import matplotlib.pyplot as plt
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import r2_score
+import numpy as np
+
 
 
 class DecisionTreeRegression:
@@ -15,6 +19,10 @@ class DecisionTreeRegression:
         return pred
 
     def Visualize(self, preds, train, test):
+        y_test = test['Close']
+        rsm = np.sqrt(np.mean(np.power((np.array(y_test)-np.array(preds)),2)))
+        print("Root Mean Square: ",rsm)
+        print("R^2 Score: ",r2_score(preds,y_test))
         test['Predictions'] = preds
         plt.figure(figsize=(16, 8))
         plt.plot(train['Close'])
