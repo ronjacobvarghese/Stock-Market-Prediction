@@ -23,5 +23,8 @@ class LinearRegressor:
         print("R^2 Score: ",r2_score(preds,y_test))
         test['Predictions'] = preds
         plt.figure(figsize=(16, 8))
-        plt.plot(train['Close'])
-        plt.plot(test[['Close', 'Predictions']])
+        plt.plot(train['Close'],label = " Training")
+        plt.plot(test[['Close']],label = "Actual")
+        plt.plot(test[['Predictions']],label = "Predicted")
+        plt.legend()
+        plt.show()
